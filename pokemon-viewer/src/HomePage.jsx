@@ -59,7 +59,12 @@ function HomePage() {
     return <p>Error</p>
   }
 
-  <form onSubmit={getPokemonData}></form>
+  <form onSubmit={onFormSubmit}>
+    <div id='form-search-pokemon'>
+      <label htmlFor='pokemon-search'>Search: </label>
+      <input type='text' id='pokemon-search-input' placeholder='Pokemon' value={searchTerms} />
+    </div>
+  </form>
 
   return (
     <div className="">
