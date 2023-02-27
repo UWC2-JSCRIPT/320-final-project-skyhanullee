@@ -1,10 +1,23 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  max-width: 90rem;
+  margin: 0 auto;
+  background: linear-gradient(140deg, #89D2DC, #6564DB);
+  background-attachment: fixed;
+}
+
+ul, li {
+  list-style-type: none;
+  display: grid;
+}
+
+.App {
+  text-align: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -24,15 +37,7 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.top-nav {
+  display: flex;
+  gap: 1rem;
 }
