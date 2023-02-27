@@ -1,0 +1,24 @@
+section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 1rem;
+}
+
+.pokemon-details {
+  display: inherit;
+  gap: 2rem;
+  justify-items: center;
+}
+
+.pokemon-types {
+  display: flex;
+  gap: 1rem;
+}
+
+.pokemon-type {
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5rem;
+  background-color: aliceblue;
+  border-radius: 10px;
+}
