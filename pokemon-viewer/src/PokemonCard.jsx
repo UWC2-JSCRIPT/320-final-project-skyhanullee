@@ -5,6 +5,7 @@ function PokemonCard({ pokemon }) {
   const [pokemonCardData, setPokemonCardData] = useState('');
 
   const { name, url } = pokemon;
+  // use effect hook here 
   fetch(url)
     .then(response => response.json())
     .then((data) => {

@@ -26,27 +26,11 @@ function HomePage() {
     // event.target[0].value = '';
   }
 
-  // useEffect(() => {
-  //   fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerms}`)
-  //   .then(response => response.json())
-  //   .then((data) => {
-  //       setPokemonData(data);
-  //       toggleLoading(false);
-  //     },
-  //     (error) => {
-  //       toggleLoading(false);
-  //       setHasError(true);
-  //     }
-  //   )
-  // }, [searchTerms]);
-
   useEffect(() => {
-    fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${resultsPerPage}&offset=0`)
+    fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerms}`)
     .then(response => response.json())
     .then((data) => {
-      // console.log(data);
-      setPokemonDataList(data);
-      // console.log(pokemonDataList);
+        setPokemonData(data);
         toggleLoading(false);
       },
       (error) => {
@@ -54,7 +38,23 @@ function HomePage() {
         setHasError(true);
       }
     )
-  }, [resultsPerPage]);
+  }, [searchTerms]);
+
+  // useEffect(() => {
+  //   fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${resultsPerPage}&offset=0`)
+  //   .then(response => response.json())
+  //   .then((data) => {
+  //     // console.log(data);
+  //     setPokemonDataList(data);
+  //     // console.log(pokemonDataList);
+  //       toggleLoading(false);
+  //     },
+  //     (error) => {
+  //       toggleLoading(false);
+  //       setHasError(true);
+  //     }
+  //   )
+  // }, [resultsPerPage]);
 
   if (loading) {
     return <p>loading...</p>
@@ -64,16 +64,16 @@ function HomePage() {
     return <p>Error</p>
   }
 
-  const pokemonArray = pokemonDataList.results.map((pokemon, index) => {
-    // console.log(pokemon.name);
-    return (
-      <li key={index}>
-        {/* <Link to={`/pokemon/${pokemon.id}`} state={{ data: { pokemon } }}> */}
-          <PokemonCard pokemon={pokemon} />
-        {/* </Link> */}
-      </li>
-    )
-  })
+  // const pokemonArray = pokemonDataList.results.map((pokemon, index) => {
+  //   // console.log(pokemon.name);
+  //   return (
+  //     <li key={index}>
+  //       <Link to={`/pokemon/${pokemon.id}`} state={{ data: { pokemon } }}>
+  //         <PokemonCard pokemon={pokemon} />
+  //       </Link>
+  //     </li>
+  //   )
+  // })
 
 
   return (
@@ -96,11 +96,11 @@ function HomePage() {
         </form>
       </header>
       {/* <PokemonViewer pokemonData={pokemonData} /> */}
-      <section className="pokemon-card-container">
+      {/* <section className="pokemon-card-container">
         <ul>
           {pokemonArray}
         </ul>
-      </section>
+      </section> */}
     </div>
   )
 }
