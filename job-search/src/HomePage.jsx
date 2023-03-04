@@ -38,7 +38,7 @@ function HomePage() {
           //   // console.log(job.latitude, job.longitude);
           //   setMarkerCoordinateArray([...markerCoordinateArray, {lat: job.latitude, lng: job.longitude}]);
           // });
-          console.log(data);
+          // console.log(data);
         },
         (error) => {
           toggleLoading(false);
