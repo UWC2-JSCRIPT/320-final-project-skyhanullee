@@ -2,7 +2,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 // import { useRef, useState } from "react";
 import Map from "./Map";
 
-function MapPage({ markerCoordinateArray }) {
+function MapPage({ alteredListOfJobs }) {
 
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   // console.log(GOOGLE_MAPS_API_KEY);
@@ -10,7 +10,7 @@ function MapPage({ markerCoordinateArray }) {
   // const map = new window.google.maps.Map(document.getElementById("map"));
 
   const center = { lat: 47.6062, lng: -122.3321 };
-  const zoom = 13;
+  const zoom = 12;
 
   const Status = {
     LOADING: 'LOADING',
@@ -34,7 +34,7 @@ function MapPage({ markerCoordinateArray }) {
 
   return (
     <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
-      <Map center={center} zoom={zoom} markerCoordinateArray={markerCoordinateArray} />
+      <Map center={center} zoom={zoom} alteredListOfJobs={alteredListOfJobs} />
     </Wrapper>
   )
 }
