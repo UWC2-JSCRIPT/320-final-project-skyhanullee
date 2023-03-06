@@ -8,7 +8,8 @@ function JobPage() {
   const dataLocation = useLocation();
 
   const jobObject = dataLocation.state?.data;
-  const { title } = jobObject.job
+
+  const { title } = jobObject.job;
 
   return (
     <div className='job-page'>

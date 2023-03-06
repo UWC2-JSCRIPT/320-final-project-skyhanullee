@@ -1,6 +1,6 @@
 import { Icon } from '@iconify/react';
 
-function JobForm({ onFormSubmit, searchTerms, location, resultsPerPage }) {
+function JobForm({ onFormSubmit, searchTerms, searchLocation, resultsPerPage }) {
 
 
   return (
@@ -12,7 +12,7 @@ function JobForm({ onFormSubmit, searchTerms, location, resultsPerPage }) {
         </div>
         <div id='form-location'>
           <label htmlFor='job-search'>Location: </label>
-          <input type='text' id='location-input' placeholder='City, State, Zip Code' value={location} />
+          <input type='text' id='location-input' placeholder='City, State, Zip Code' value={searchLocation} />
         </div>
         {/* <div id='form-results-per-page'>
           <label htmlFor='job-search'>Results per page: </label>
