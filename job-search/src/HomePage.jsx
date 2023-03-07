@@ -9,7 +9,7 @@ function HomePage() {
   const [searchTerms, setSearchTerms] = useState('react');
   const [searchLocation, setSearchLocation] = useState('seattle');
   // const [resultsPerPage, setResultsPerPage] = useState(4);
-  const resultsPerPage = 3;
+  const resultsPerPage = 10;
 
   // const [markerCoordinateArray, setMarkerCoordinateArray] = useState([]);
 
@@ -23,7 +23,7 @@ function HomePage() {
   const ADZUNA_API_KEY = process.env.REACT_APP_ADZUNA_APP_KEY;
 
   const [jobResult, setJobResult] = useState();
-  const [listOfJobs, setListOfJobs] = useState([]);
+  // const [listOfJobs, setListOfJobs] = useState([]);
 
   const [loading, toggleLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -49,21 +49,16 @@ function HomePage() {
           console.log(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`);
           setJobResult(data);
           toggleLoading(false);
-          // data.results.forEach(job => {
-          //   console.log(job.latitude, job.longitude);
-          //   setMarkerCoordinateArray([...markerCoordinateArray, {lat: job.latitude, lng: job.longitude}]);
+
+          // let tempArray = [];
+          // data.results.forEach((job) => {
+          //   tempArray.push({
+          //     id: job.id,
+          //     job: job,
+          //     location: { lat: parseFloat(job.latitude), lng: parseFloat(job.longitude) }
+          //   });
           // });
-          // updateListOfJobs(data);
-              let tempArray = [];
-              data.results.forEach((job) => {
-                tempArray.push({
-                  id: job.id,
-                  job: job,
-                  location: { lat: parseFloat(job.latitude), lng: parseFloat(job.longitude) }
-                });
-              });
-              setListOfJobs(...listOfJobs, tempArray);
-              // console.log(listOfJobs);
+          // setListOfJobs(...listOfJobs, tempArray);
 
           // console.log(data);
         },
@@ -105,7 +100,7 @@ function HomePage() {
     <section className='main-container'>
       <section className='map-container'>
         {/* <MapPage markerCoordinateArray={markerCoordinateArray} /> */}
-        <MapPage alteredListOfJobs={listOfJobs} />
+        <MapPage jobResult={jobResult} />
       </section>
       <section className='job-app-container'>
         <JobForm
