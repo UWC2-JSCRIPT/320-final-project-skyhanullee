@@ -2,15 +2,18 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 // import { useRef, useState } from "react";
 import Map from "./Map";
 
-function MapPage({ alteredListOfJobs }) {
+function MapPage({ jobResult }) {
 
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   // console.log(GOOGLE_MAPS_API_KEY);
 
+  const { results } = jobResult;
+
   // const map = new window.google.maps.Map(document.getElementById("map"));
 
-  const center = { lat: 47.6062, lng: -122.3321 };
-  const zoom = 12;
+  // const center = { lat: 47.6062, lng: -122.3321 };
+  const center = {lat: results[0].latitude, lng: results[0].longitude};
+  const zoom = 10;
 
   const Status = {
     LOADING: 'LOADING',
@@ -34,7 +37,7 @@ function MapPage({ alteredListOfJobs }) {
 
   return (
     <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
-      <Map center={center} zoom={zoom} alteredListOfJobs={alteredListOfJobs} />
+      <Map center={center} zoom={zoom} jobResult={jobResult} />
     </Wrapper>
   )
 }
