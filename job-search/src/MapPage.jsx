@@ -1,6 +1,6 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 // import { useRef, useState } from "react";
-import Map from "./Map";
+import Marker from "./Marker";
 
 function MapPage({ jobResult, homeMap, setHomeMap }) {
 
@@ -31,13 +31,13 @@ function MapPage({ jobResult, homeMap, setHomeMap }) {
         // return <ErrorComponent />;
         return <h1>Error</h1>
       case Status.SUCCESS:
-        return <Map />;
+        return <Marker />;
     }
   };
 
   return (
     <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
-      <Map 
+      <Marker 
         center={center} 
         zoom={zoom} 
         jobResult={jobResult} 
