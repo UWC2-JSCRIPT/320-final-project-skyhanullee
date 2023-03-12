@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from "react";
-import JobCard from "./JobCard";
 import { renderToString } from 'react-dom/server';
+import MarkerCard from "./MarkerCard";
 
 function addMarker(job, map) {
   const { latitude, longitude, title } = job;
@@ -13,7 +13,7 @@ function addMarker(job, map) {
   // new window.google.maps.Marker({position: { lat: 47.6162, lng: -122.3021 } , map: map});
   const infowindow = new window.google.maps.InfoWindow({
     // content: title,
-    content: renderToString(<JobCard job={job} />),
+    content: renderToString(<MarkerCard job={job} />),
     position: markerPosition,
   });
   
@@ -34,6 +34,9 @@ function Marker({ center, zoom, jobResult, homeMap, setHomeMap }) {
   const ref = useRef();
   // console.log(jobResult.results);
 
+  let bounds = new window.google.maps.LatLngBounds();
+
+
   useEffect(() => {
     let map = new window.google.maps.Map(ref.current, {
       center,
@@ -53,8 +56,8 @@ function Marker({ center, zoom, jobResult, homeMap, setHomeMap }) {
         // console.log(job.title, job.latitude, job.longitude);
         addMarker(job, map);
 
-        let bounds = new window.google.maps.LatLngBounds();
-        bounds.extend(new window.google.maps.LatLng(job.latitude, job.longitude));
+        const jobLatLng = new window.google.maps.LatLng(job.latitude, job.longitude);
+        bounds.extend(jobLatLng);
         map.fitBounds(bounds);
       }
 
