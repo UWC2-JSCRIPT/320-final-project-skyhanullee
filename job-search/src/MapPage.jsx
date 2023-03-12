@@ -2,7 +2,7 @@ import { Wrapper } from "@googlemaps/react-wrapper";
 // import { useRef, useState } from "react";
 import Marker from "./Marker";
 
-function MapPage({ jobResult, homeMap, setHomeMap }) {
+function MapPage({ jobResult }) {
 
   const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   // console.log(GOOGLE_MAPS_API_KEY);
@@ -41,8 +41,6 @@ function MapPage({ jobResult, homeMap, setHomeMap }) {
         center={center} 
         zoom={zoom} 
         jobResult={jobResult} 
-        homeMap={homeMap}
-        setHomeMap={setHomeMap}
       />
     </Wrapper>
   )
