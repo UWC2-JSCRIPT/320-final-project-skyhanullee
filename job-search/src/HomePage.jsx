@@ -28,6 +28,8 @@ function HomePage() {
   const [loading, toggleLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
+  const [homeMap, setHomeMap] = useState();
+
   // const updateListOfJobs = (jobList) => {
   //   let tempArray = [];
   //   jobList.results.forEach((job) => {
@@ -49,18 +51,6 @@ function HomePage() {
           console.log(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`);
           setJobResult(data);
           toggleLoading(false);
-
-          // let tempArray = [];
-          // data.results.forEach((job) => {
-          //   tempArray.push({
-          //     id: job.id,
-          //     job: job,
-          //     location: { lat: parseFloat(job.latitude), lng: parseFloat(job.longitude) }
-          //   });
-          // });
-          // setListOfJobs(...listOfJobs, tempArray);
-
-          // console.log(data);
         },
         (error) => {
           toggleLoading(false);
@@ -78,7 +68,6 @@ function HomePage() {
   }
   
   const jobResultList = jobResult.results.map((job) => {
-    // console.log(job.id);
     return (
       <li key={job.id}>
         <Link to={`/job/${job.id}`} state={{ data: { job } }}>
@@ -88,28 +77,22 @@ function HomePage() {
     )
   });
 
-  // const printListOfJobs = () => {
-  //   console.log('printing list of jobs:');
-  //   console.log(listOfJobs);
-  //   console.log(typeof(listOfJobs));
-  // }
-
-  // printListOfJobs();
-
   return (
     <section className='main-container'>
       <section className='map-container'>
-        {/* <MapPage markerCoordinateArray={markerCoordinateArray} /> */}
-        <MapPage jobResult={jobResult} />
+        <MapPage 
+          jobResult={jobResult}
+          homeMap={homeMap}
+          setHomeMap={setHomeMap}
+        />
       </section>
       <section className='job-app-container'>
         <JobForm
           onFormSubmit={onFormSubmit}
           setSearchTerms={setSearchTerms}
           setSearchLocation={setSearchLocation}
-        // setResultsPerPage={setResultsPerPage}
         />
-        {/* <h1>Showing results for: {searchTerms}</h1> */}
+
         <section className='job-card-container'>
           <ul>
             {jobResultList}
