@@ -6,6 +6,7 @@ function JobCard({ job }) {
   return (
     <div className='job-card'>
       <h2 className='job-title'>{title}</h2>
+      <hr/>
       <div className='job-details'>
         <h3>Location:</h3>
         <p>{location.display_name}</p>
