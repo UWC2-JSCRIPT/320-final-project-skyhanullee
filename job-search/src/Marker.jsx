@@ -30,21 +30,18 @@ function addMarker(job, map) {
   });
 }
 
-function Marker({ center, zoom, jobResult, homeMap, setHomeMap }) {
+function Marker({ center, zoom, jobResult }) {
   const ref = useRef();
   // console.log(jobResult.results);
 
+  // to set up map bounds when showing on screen
   let bounds = new window.google.maps.LatLngBounds();
-
 
   useEffect(() => {
     let map = new window.google.maps.Map(ref.current, {
       center,
       zoom
     });
-
-    setHomeMap(map);
-    // console.log(homeMap);
 
     jobResult.results.forEach((job) => {
       // console.log(job);
