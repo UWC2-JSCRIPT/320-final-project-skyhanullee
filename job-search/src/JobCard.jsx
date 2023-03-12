@@ -11,7 +11,7 @@ function JobCard({ job }) {
         <p>{location.display_name}</p>
         <h3>Company:</h3>
         <p>{company.display_name}</p>
-        <h3>Estimated Salary:</h3>
+        <h3>Salary:</h3>
         <p>{salary}</p>
         <h3>Date Created: </h3>
         <p>{dateCreated}</p>
