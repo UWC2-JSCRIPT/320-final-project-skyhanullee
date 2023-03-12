@@ -23,25 +23,9 @@ function HomePage() {
   const ADZUNA_API_KEY = process.env.REACT_APP_ADZUNA_APP_KEY;
 
   const [jobResult, setJobResult] = useState();
-  // const [listOfJobs, setListOfJobs] = useState([]);
 
   const [loading, toggleLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-
-  const [homeMap, setHomeMap] = useState();
-
-  // const updateListOfJobs = (jobList) => {
-  //   let tempArray = [];
-  //   jobList.results.forEach((job) => {
-  //     tempArray.push({
-  //       id: job.id,
-  //       job: job,
-  //       location: { lat: job.latitude, lng: job.longitude }
-  //     });
-  //   });
-  //   setListOfJobs(...listOfJobs, tempArray);
-  //   // console.log(listOfJobs);
-  // };
 
   useEffect(() => {
     fetch(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`)
@@ -82,8 +66,6 @@ function HomePage() {
       <section className='map-container'>
         <MapPage 
           jobResult={jobResult}
-          homeMap={homeMap}
-          setHomeMap={setHomeMap}
         />
       </section>
       <section className='job-app-container'>
