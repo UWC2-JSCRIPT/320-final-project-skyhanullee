@@ -46,11 +46,6 @@ function Marker({ center, zoom, jobResult }) {
     jobResult.results.forEach((job) => {
       // console.log(job);
       if(job.latitude !== undefined) {
-        // setMarkerArray([
-        //   ...markerArray,
-        //   new window.google.maps.Marker({position: job.location, map: map})
-        // ])
-        // console.log(job.title, job.latitude, job.longitude);
         addMarker(job, map);
 
         const jobLatLng = new window.google.maps.LatLng(job.latitude, job.longitude);
