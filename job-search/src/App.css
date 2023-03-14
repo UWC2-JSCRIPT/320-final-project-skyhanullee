@@ -4,14 +4,17 @@
   font-family: 'Poppins', sans-serif;
 }
 
+[data-theme='dark'] {
+  --background: #e1e5f0;
+}
+
 body {
   /* max-width: 90rem; */
   margin: 0 auto;
-  background: linear-gradient(140deg, #89D2DC, #6564DB);
+  /* background: linear-gradient(140deg, #89D2DC, #6564DB); */
+  background: #e1e5f0;
   background-attachment: fixed;
-  width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
+
 }
 
 ul, li {
@@ -46,6 +49,14 @@ button:hover {
   cursor: pointer;
 }
 
+.App {
+  background-color: var(--background);
+  width: 100%;
+  height: 100vh !important;
+  min-height: 100%;
+
+}
+
 .top-nav {
   height: 4rem;
   display: flex;
@@ -59,6 +70,13 @@ button:hover {
 
 #adzuna-icon {
   width: 2.5rem;
+}
+
+#nav-title {
+  display: grid;
+  align-content: center;
+  margin-left: 1rem;
+  font-size: 1.5rem;
 }
 
 .links-container {
@@ -77,14 +95,16 @@ button:hover {
 #home-link {
   /* background-color: aliceblue; */
   /* border-radius: 15px; */
-
 }
 
-#nav-title {
-  display: grid;
-  align-content: center;
-  margin-left: 1rem;
-  font-size: 1.5rem;
+#theme-button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+#theme-icon {
+  font-size: 2rem;
 }
 
 .main-container {
