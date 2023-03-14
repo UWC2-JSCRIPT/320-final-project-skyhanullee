@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Icon } from '@iconify/react';
 import adzunaIcon from './adzuna.svg';
+import Button from './Button';
 
 function Navbar() {
   return (
@@ -15,7 +15,8 @@ function Navbar() {
             <Link to='/'>Home</Link>
           </li>
           <li className="nav-link" id="sign-in-link">Sign In</li>
-          <li className="nav-link" id="theme-toggle">Theme</li>
+          {/* <li className="nav-link" id="theme-toggle">Theme</li> */}
+          <li className="nav-link" id="theme-toggle"><Button /></li>
         </ul>
       </nav>
     </header>

@@ -1,13 +1,13 @@
 import { createContext, useState } from "react";
 
 const ThemeContext = createContext({
-  themeName: 'light'
+  themeName: 'dark'
 });
 
 export default ThemeContext
 
 export function ThemeController({ children }) {
-  const [themeName, setThemeName] = useState('light');
+  const [themeName, setThemeName] = useState('dark');
   return (
     <ThemeContext.Provider value={{ themeName, setThemeName }}>
       {/* everything inside of this provider is a child of ThemeContext */}
