@@ -13,14 +13,16 @@ function MarkerCard({ job }) {
         <p>{location.display_name}</p>
         <h3>Company:</h3>
         <p>{company.display_name}</p>
-        <h3>Estimated Salary:</h3>
+        <h3>Salary:</h3>
         <p>{salary}</p>
         <h3>Date Created: </h3>
         <p>{dateCreated}</p>
+        <a href="#"><h3>More Info</h3></a>
       </div>
       {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}>
         <button>More Info</button>
       </Link> */}
+      <Link to={`/job/${job.id}`} state={{ data: { job } }}>Link to Job Page</Link>
     </div>
   )
 }
