@@ -22,7 +22,7 @@ function MarkerCard({ job }) {
       {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}>
         <button>More Info</button>
       </Link> */}
-      <Link to={`/job/${job.id}`} state={{ data: { job } }}>Link to Job Page</Link>
+      {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}>Link to Job Page</Link> */}
     </div>
   )
 }
