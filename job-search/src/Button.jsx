@@ -10,17 +10,18 @@ function useTheme() {
 }
 
 function Button() {
-  const { themeName, setThemeName } = useTheme()
+  const { themeName, setThemeName } = useContext(ThemeContext);
   return (
     <button 
       id="theme-button"
       onClick={() => {
-      themeName === 'dark'? (setThemeName('dark') ) : (setThemeName('light') )
+        themeName === 'dark-mode' ? setThemeName('light-mode') : setThemeName('dark-mode')
+        console.log('theme icon clicked');
       }}>
       <Icon 
         id="theme-icon"
         icon={
-            themeName === 'dark' ? 
+            themeName === 'dark-mode' ? 
             "material-symbols:dark-mode" : "material-symbols:light-mode"
           }
       />

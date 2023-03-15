@@ -8,17 +8,19 @@ import ThemeContext, { ThemeController } from './ThemeContext';
 
 function App() {
   const { themeName } = useContext(ThemeContext);
+  console.log(`the theme from App is ${themeName}`);
 
   return (
-    <div className='App' data-theme={themeName}>
-      <ThemeController>
+    // <div className='App' data-theme={themeName}>
+    // <ThemeController>
+      <div className={`App ${themeName}`}>
         <Navbar />
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/job/:jobId' element={<JobPage />} />
         </Routes>
-      </ThemeController>
-    </div>
+      </div>
+    // </ThemeController>
   );
 }
 
