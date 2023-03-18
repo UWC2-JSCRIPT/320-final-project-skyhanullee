@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import JobPage from './JobPage';
 import Navbar from './Navbar';
 import HomePage from './HomePage';
+import SignInPage from './SignInPage';
 import ThemeContext, { ThemeController } from './ThemeContext';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/job/:jobId' element={<JobPage />} />
+          {/* <Route path='/signin' element={<SignInPage />} /> */}
         </Routes>
       </div>
     // </ThemeController>
