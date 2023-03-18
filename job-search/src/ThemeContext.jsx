@@ -1,8 +1,6 @@
 import { createContext, useState } from "react";
 
-const ThemeContext = createContext({
-  themeName: ''
-});
+const ThemeContext = createContext({themeName: ''});
 
 export default ThemeContext
 

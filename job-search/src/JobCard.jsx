@@ -1,10 +1,10 @@
 function JobCard({ job }) {
-  const { title, location, company, salary_min, created } = job
+  const { title, location, company, salary_min, created, id } = job
   const dateCreated = new Date(created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   const salary = salary_min.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
   return (
-    <div className='job-card'>
+    <div className='job-card' id={`job-${id}`}>
       <h2 className='job-title'>{title}</h2>
       <hr/>
       <div className='job-details'>
