@@ -3,12 +3,14 @@ import { renderToString } from 'react-dom/server';
 import MarkerCard from "./MarkerCard";
 
 function addMarker(job, map) {
-  const { latitude, longitude, title } = job;
+  const { latitude, longitude, title, id } = job;
   const markerPosition = new window.google.maps.LatLng(latitude, longitude);
   const marker = new window.google.maps.Marker({
+    id: id,
     position: markerPosition, 
     map: map,
   });
+  // console.log(marker);
   // new window.google.maps.Marker({position: { lat: 47.6062, lng: -122.3321 } , map: map});
   // new window.google.maps.Marker({position: { lat: 47.6162, lng: -122.3021 } , map: map});
   const infowindow = new window.google.maps.InfoWindow({
@@ -30,7 +32,7 @@ function addMarker(job, map) {
   });
 }
 
-function Marker({ center, zoom, jobResult }) {
+function Map({ center, zoom, jobResult }) {
   const ref = useRef();
   // console.log(jobResult.results);
 
@@ -38,10 +40,8 @@ function Marker({ center, zoom, jobResult }) {
   let bounds = new window.google.maps.LatLngBounds();
 
   useEffect(() => {
-    let map = new window.google.maps.Map(ref.current, {
-      center,
-      zoom
-    });
+    let map = new window.google.maps.Map(ref.current, {center, zoom});
+    console.log('marker useeffect called in Map.jsx');
 
     jobResult.results.forEach((job) => {
       // console.log(job);
@@ -65,4 +65,4 @@ function Marker({ center, zoom, jobResult }) {
     <div ref={ref} id="map" />
   )
 }
-export default Marker
+export default Map
