@@ -250,7 +250,7 @@ button[type=submit]:hover {
 }
 
 .job-page {
-  background-color: var(--background);
+  background-color: var(--card-background);
   padding: 2rem;
   /* border-radius: 15px; */
   color: var(--card-font-color);
