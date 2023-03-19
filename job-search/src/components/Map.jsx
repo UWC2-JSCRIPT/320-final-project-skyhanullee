@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState, useContext } from "react";
 import { renderToString } from 'react-dom/server';
-import JobResultContext from "./JobResultContext";
+import JobResultContext from '../context/JobResultContext';
 import Marker from "./Marker";
 import MarkerCard from "./MarkerCard";
 

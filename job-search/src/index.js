@@ -4,8 +4,8 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
-import { ThemeController } from './ThemeContext';
-import { JobResultController } from './JobResultContext';
+import { ThemeController } from './context/ThemeContext';
+import { JobResultController } from './context/JobResultContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

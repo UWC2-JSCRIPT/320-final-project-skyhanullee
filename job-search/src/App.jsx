@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import { useContext } from 'react';
-import JobPage from './JobPage';
-import Navbar from './Navbar';
-import HomePage from './HomePage';
-import SignInPage from './SignInPage';
-import ThemeContext, { ThemeController } from './ThemeContext';
+import JobPage from './pages/JobPage';
+import Navbar from './components/Navbar';
+import HomePage from './pages/HomePage';
+import SignInPage from './pages/SignInPage';
+import ThemeContext, { ThemeController } from './context/ThemeContext';
 // import { initializeApp } from 'firebase/app';
 // import { getFirestore } from 'firebase/firestore';
 import firebase from 'firebase/compat/app';

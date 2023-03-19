@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import adzunaIcon from './images/adzuna.svg';
+import adzunaIcon from '../images/adzuna.svg';
 import Button from './Button';
 
 function Navbar() {

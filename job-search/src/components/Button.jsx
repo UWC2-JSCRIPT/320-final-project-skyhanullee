@@ -1,6 +1,6 @@
 // import useTheme from "./useTheme";
 import { useContext } from "react";
-import ThemeContext from "./ThemeContext";
+import ThemeContext from "../context/ThemeContext";
 import { Icon } from '@iconify/react';
 
 function useTheme() {

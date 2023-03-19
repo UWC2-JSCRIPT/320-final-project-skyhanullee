@@ -1,7 +1,7 @@
 import { useLocation, useParams } from 'react-router-dom';
-import JobDescription from './JobDescription';
-import JobDetails from './JobDetails';
-import JobLink from './JobLink';
+import JobDescription from '../components/JobDescription';
+import JobDetails from '../components/JobDetails';
+import JobLink from '../components/JobLink';
 
 function JobPage() {
   const { jobId } = useParams();

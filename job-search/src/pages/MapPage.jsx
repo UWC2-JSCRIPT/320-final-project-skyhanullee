@@ -1,7 +1,7 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 import { useContext, useRef, useState } from "react";
-import JobResultContext from "./JobResultContext";
-import Map from "./Map";
+import JobResultContext from '../context/JobResultContext';
+import Map from "../components/Map";
 
 function MapPage() {
   const { jobResult } = useContext(JobResultContext);
