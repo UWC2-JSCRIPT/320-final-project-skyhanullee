@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import JobForm from './JobForm';
 import JobCard from './JobCard';
 import MapPage from './MapPage';
+import JobResultContext, { JobResultController } from './JobResultContext';
 // import jsonData from './data.json';
 
 function HomePage() {
@@ -22,7 +23,9 @@ function HomePage() {
   const ADZUNA_API_ID = process.env.REACT_APP_ADZUNA_APP_ID;
   const ADZUNA_API_KEY = process.env.REACT_APP_ADZUNA_APP_KEY;
 
-  const [jobResult, setJobResult] = useState();
+  const { jobResult, setJobResult } = useContext(JobResultContext);
+
+  // const [jobResult, setJobResult] = useState();
 
   const [loading, toggleLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -65,7 +68,7 @@ function HomePage() {
     <section className='main-container'>
       <section className='map-container'>
         <MapPage 
-          jobResult={jobResult}
+          // jobResult={jobResult}
         />
       </section>
       <section className='job-app-container'>

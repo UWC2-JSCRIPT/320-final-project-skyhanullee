@@ -5,15 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ThemeController } from './ThemeContext';
+import { JobResultController } from './JobResultContext';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ThemeController>
+    <JobResultController>
       <BrowserRouter>
         <App />
       </BrowserRouter>
+      </JobResultController>
     </ThemeController>
   </React.StrictMode>
 );
