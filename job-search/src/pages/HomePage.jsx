@@ -2,15 +2,17 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import JobForm from '../components/JobForm';
 import JobCard from '../components/JobCard';
-import MapPage from '../components/MapWrapper';
+import MapWrapper from '../components/MapWrapper';
 import JobResultContext from '../context/JobResultContext';
+import JobResultList from '../components/JobResultList';
+import Map from '../components/Map';
 // import jsonData from './data.json';
 
 function HomePage() {
-  const [searchTerms, setSearchTerms] = useState('react');
-  const [searchLocation, setSearchLocation] = useState('seattle');
+  const [searchTerms, setSearchTerms] = useState('');
+  const [searchLocation, setSearchLocation] = useState('');
   // const [resultsPerPage, setResultsPerPage] = useState(4);
-  const resultsPerPage = 10;
+  const resultsPerPage = 5;
 
   // const [markerCoordinateArray, setMarkerCoordinateArray] = useState([]);
 
@@ -54,20 +56,20 @@ function HomePage() {
     return <p>Error</p>
   }
   
-  const jobResultList = jobResult.results.map((job) => {
-    return (
-      <li key={job.id}>
-        <Link to={`/job/${job.id}`} state={{ data: { job } }}>
-          <JobCard job={job} />
-        </Link>
-      </li>
-    )
-  });
+  // const jobResultList = jobResult.results.map((job) => {
+  //   return (
+  //     <li key={job.id}>
+  //       <Link to={`/job/${job.id}`} state={{ data: { job } }}>
+  //         <JobCard job={job} />
+  //       </Link>
+  //     </li>
+  //   )
+  // });
 
   return (
     <section className='main-container'>
       <section className='map-container'>
-        <MapPage 
+        <Map 
           // jobResult={jobResult}
         />
       </section>
@@ -79,9 +81,10 @@ function HomePage() {
         />
 
         <section className='job-card-container'>
-          <ul>
-            {jobResultList}
-          </ul>
+          {/* <ul> */}
+            {/* {jobResultList} */}
+            <JobResultList />
+          {/* </ul> */}
         </section>
       </section>
     </section>
