@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import JobForm from '../components/JobForm';
 import JobCard from '../components/JobCard';
-import MapPage from './MapPage';
+import MapPage from '../components/MapPage';
 import JobResultContext from '../context/JobResultContext';
 // import jsonData from './data.json';
 
