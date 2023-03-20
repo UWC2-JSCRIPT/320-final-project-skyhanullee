@@ -5,14 +5,12 @@ import JobPage from './pages/JobPage';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
-import ThemeContext, { ThemeController } from './context/ThemeContext';
-// import { initializeApp } from 'firebase/app';
-// import { getFirestore } from 'firebase/firestore';
+import ThemeContext from './context/ThemeContext';
 import firebase from 'firebase/compat/app';
 
 function App() {
   const { themeName } = useContext(ThemeContext);
-  console.log(`the theme from App is ${themeName}`);
+  // console.log(`the theme from App is ${themeName}`);
 
   firebase.initializeApp({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -22,7 +20,6 @@ function App() {
 
   return (
     // <div className='App' data-theme={themeName}>
-    // <ThemeController>
       <div className={`App ${themeName}`}>
         <Navbar />
         <Routes>
@@ -31,7 +28,6 @@ function App() {
           {/* <Route path='/signin' element={<SignInPage />} /> */}
         </Routes>
       </div>
-    // </ThemeController>
   );
 }
 
