@@ -3,7 +3,7 @@ import { useContext, useRef, useState } from "react";
 import JobResultContext from '../context/JobResultContext';
 import Map from "./Map";
 
-function MapPage() {
+function MapWrapper() {
   const { jobResult } = useContext(JobResultContext);
   const { results } = jobResult;
   const center = {lat: results[0].latitude, lng: results[0].longitude};
@@ -48,4 +48,4 @@ function MapPage() {
     </Wrapper>
   )
 }
-export default MapPage
+export default MapWrapper
