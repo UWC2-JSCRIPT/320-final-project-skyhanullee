@@ -1,20 +1,14 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect, useContext } from 'react';
 import JobForm from '../components/JobForm';
-import JobCard from '../components/JobCard';
-import MapWrapper from '../components/MapWrapper';
 import JobResultContext from '../context/JobResultContext';
 import JobResultList from '../components/JobResultList';
 import Map from '../components/Map';
-// import jsonData from './data.json';
 
 function HomePage() {
   const [searchTerms, setSearchTerms] = useState('');
   const [searchLocation, setSearchLocation] = useState('');
-  // const [resultsPerPage, setResultsPerPage] = useState(4);
   const resultsPerPage = 5;
 
-  // const [markerCoordinateArray, setMarkerCoordinateArray] = useState([]);
 
   const onFormSubmit = (event) => {
     event.preventDefault();
@@ -37,7 +31,7 @@ function HomePage() {
       .then(response => response.json())
       .then(
         (data) => {
-          console.log(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`);
+          // console.log(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`);
           setJobResult(data);
           toggleLoading(false);
         },
@@ -49,22 +43,12 @@ function HomePage() {
   }, [searchTerms, searchLocation])
 
   if (loading) {
-    return <p>loading...</p>
+    return <h1>loading...</h1>
   }
 
   if (hasError) {
-    return <p>Error</p>
+    return <h1>Error</h1>
   }
-  
-  // const jobResultList = jobResult.results.map((job) => {
-  //   return (
-  //     <li key={job.id}>
-  //       <Link to={`/job/${job.id}`} state={{ data: { job } }}>
-  //         <JobCard job={job} />
-  //       </Link>
-  //     </li>
-  //   )
-  // });
 
   return (
     <section className='main-container'>
@@ -81,10 +65,7 @@ function HomePage() {
         />
 
         <section className='job-card-container'>
-          {/* <ul> */}
-            {/* {jobResultList} */}
-            <JobResultList />
-          {/* </ul> */}
+          <JobResultList />
         </section>
       </section>
     </section>
