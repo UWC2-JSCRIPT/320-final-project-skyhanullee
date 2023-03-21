@@ -13,9 +13,19 @@ function Map() {
 
   // // to set up map bounds when showing on screen
   let bounds = new window.google.maps.LatLngBounds();
+  const zoom = 5;
+  const center = {
+    lat: jobResult.results[0]?.latitude || 37.0902, 
+    lng: jobResult.results[0]?.longitude || -95.7129
+  }
 
-  const center = {lat: jobResult.results[0].latitude, lng: jobResult.results[0].longitude};
-  const zoom = 10;
+  // if(jobResult.results[0].latitude === undefined) {
+  //   center = {lat: 37.0902, lng: -95.7129};
+  //   console.log(`latitude is undefined`)
+  // }
+  // else {
+  //   center = {lat: jobResult.results[0].latitude, lng: jobResult.results[0].longitude};
+  // }
 
   useEffect(() => {
     // let map = new window.google.maps.Map(ref.current, {center, zoom});
