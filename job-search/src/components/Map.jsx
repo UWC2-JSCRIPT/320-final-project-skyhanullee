@@ -4,11 +4,10 @@ import MapContext from "../context/MapContext";
 
 function Map() {
   const ref = useRef();
-  // console.log(jobResult.results);
   const { jobResult } = useContext(JobResultContext);
   const { map, setMap, setBounds } = useContext(MapContext);
 
-  // // to set up map bounds when showing on screen
+  // to set up map bounds when showing on screen
   let bounds = new window.google.maps.LatLngBounds();
   const zoom = 5;
   const center = {
