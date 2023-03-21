@@ -6,9 +6,7 @@ import JobLink from '../components/JobLink';
 function JobPage() {
   const { jobId } = useParams();
   const dataLocation = useLocation();
-
   const jobObject = dataLocation.state?.data;
-
   const { title } = jobObject.job;
 
   return (

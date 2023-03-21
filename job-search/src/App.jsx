@@ -7,20 +7,12 @@ import HomePage from './pages/HomePage';
 import SignInPage from './pages/SignInPage';
 import ThemeContext from './context/ThemeContext';
 import firebase from 'firebase/compat/app';
-import MarkerCard from './components/MarkerCard';
+
 
 function App() {
   const { themeName } = useContext(ThemeContext);
-  // console.log(`the theme from App is ${themeName}`);
-
-  // firebase.initializeApp({
-  //   apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-  //   authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-  //   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID
-  // });
 
   return (
-    // <div className='App' data-theme={themeName}>
       <div className={`App ${themeName}`}>
         <Navbar />
         <Routes>

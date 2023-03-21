@@ -4,7 +4,6 @@ import 'firebase/compat/auth';
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import "firebase/compat/auth";
-
 import db from "../db/db";
 
 function SignInPage() {

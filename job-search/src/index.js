@@ -10,8 +10,6 @@ import { MapController } from './context/MapContext';
 import { Wrapper } from "@googlemaps/react-wrapper";
 import Map from './components/Map';
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 const Status = {

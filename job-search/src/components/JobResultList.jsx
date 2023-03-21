@@ -9,26 +9,17 @@ import MarkerCard from './MarkerCard';
 function JobResultList() {
   const { jobResult } = useContext(JobResultContext);
   const { map, bounds, infowindow } = useContext(MapContext);
-
-  // const [markerList, setMarkerList] = useState([]);
   const [jobMarkerList, setJobMarkerList] = useState([]);
-  // const [markerInfowindow, setMarkerInfowindow] = useState();
 
   useEffect(() => {
     setJobMarkerList([]);
     jobResult.results.forEach((job) => {
       if (job.latitude !== undefined && map !== undefined && bounds !== undefined) {
-        // console.log(markerInfowindow.content);
-        // let tempMarker = Marker(job, map, bounds, setMarkerInfowindow);
         const { marker } = Marker(job, map, bounds, infowindow);
-        // setMarkerList([...markerList, tempMarker]);
-
         const tempJobMarker = {
           id: job.id,
           job: job,
           marker: marker,
-          // infowindow: markerInfowindow
-          // infowindow: infowindow
         };
         setJobMarkerList(current => [...current, tempJobMarker]);
       }
@@ -54,16 +45,15 @@ function JobResultList() {
         key={job.id}
         onClick={() => {
           if (currentJob !== undefined) {
-              // const infowindow = new window.google.maps.InfoWindow();
-              infowindow.setContent(renderToString(<MarkerCard job={job} />));
-              infowindow.setPosition(currentJob.marker.position);
-              infowindow.open({
-                anchor: currentJob.marker,
-                map,
-              }, this);
+            infowindow.setContent(renderToString(<MarkerCard job={job} />));
+            infowindow.setPosition(currentJob.marker.position);
+            infowindow.open({
+              anchor: currentJob.marker,
+              map,
+            }, this);
           }
-        }
-        }>
+        }}
+      >
         <JobCard job={job} />
       </li>
     )

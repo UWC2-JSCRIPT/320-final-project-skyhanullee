@@ -13,7 +13,6 @@ function HomePage() {
   const [searchLocation, setSearchLocation] = useState(DEFAULT_SEARCH_LOCATION);
   const resultsPerPage = DEFAULT_RESULTS_PER_PAGE;
 
-
   const onFormSubmit = (event) => {
     event.preventDefault();
     setSearchTerms(event.target[0].value);
@@ -23,10 +22,7 @@ function HomePage() {
   const ADZUNA_API_ID = process.env.REACT_APP_ADZUNA_APP_ID;
   const ADZUNA_API_KEY = process.env.REACT_APP_ADZUNA_APP_KEY;
 
-  const { jobResult, setJobResult } = useContext(JobResultContext);
-
-  // const [jobResult, setJobResult] = useState();
-
+  const { setJobResult } = useContext(JobResultContext);
   const [loading, toggleLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
 
@@ -35,7 +31,6 @@ function HomePage() {
       .then(response => response.json())
       .then(
         (data) => {
-          // console.log(`https://api.adzuna.com/v1/api/jobs/us/search/1?app_id=${ADZUNA_API_ID}&app_key=${ADZUNA_API_KEY}&results_per_page=${resultsPerPage}&what=${searchTerms}&where=${searchLocation}`);
           setJobResult(data);
           toggleLoading(false);
         },

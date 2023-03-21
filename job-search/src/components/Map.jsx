@@ -16,9 +16,7 @@ function Map() {
   }
 
   useEffect(() => {
-    // let map = new window.google.maps.Map(ref.current, {center, zoom});
     setMap(new window.google.maps.Map(ref.current, {center, zoom}));
-    // console.log('marker useeffect called in Map.jsx');
     jobResult.results.forEach((job)   => {
       if(job.latitude !== undefined && map !== undefined) {
         const jobLatLng = new window.google.maps.LatLng(job.latitude, job.longitude);
@@ -27,8 +25,6 @@ function Map() {
         setBounds(bounds);
       }
     });
-    // console.log('map called');
-
   }, [jobResult]);
 
   return (

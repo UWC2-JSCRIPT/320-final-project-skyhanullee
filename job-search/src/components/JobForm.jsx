@@ -1,8 +1,6 @@
 import { Icon } from '@iconify/react';
 
 function JobForm({ onFormSubmit, searchTerms, searchLocation, resultsPerPage }) {
-
-
   return (
     <div className='job-form'>
       <form onSubmit={onFormSubmit}>

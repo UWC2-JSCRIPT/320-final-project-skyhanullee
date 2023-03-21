@@ -1,5 +1,5 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
-import { useContext, useRef, useState } from "react";
+import { useContext } from "react";
 import JobResultContext from '../context/JobResultContext';
 import Map from "./Map";
 
@@ -30,20 +30,11 @@ function MapWrapper() {
     }
   };
 
-  const [markerList, setMarkerList] = useState([]);
-
-
   return (
     <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
-      {/* <Map 
-        center={center} 
-        zoom={zoom} 
-        jobResult={jobResult} 
-      /> */}
       <Map 
         center={center} 
         zoom={zoom} 
-        // jobResult={jobResult} 
       />
     </Wrapper>
   )

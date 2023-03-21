@@ -1,5 +1,5 @@
 function JobDetails({ jobObject }) {
-  const { title, location, company, created, salary_min, description } = jobObject.job
+  const { location, company, created, salary_min } = jobObject.job
   const dateCreated = new Date(created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   const salary = salary_min.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
