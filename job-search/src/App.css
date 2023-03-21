@@ -290,10 +290,9 @@ button[type=submit]:hover {
   color: var(--font-color);
 }
 
-/* .map-container {
-  width: calc(100% - 25rem);
-  height: calc(80vh - 4rem);
-} */
+.marker-card {
+  width: 17rem;
+}
 
 #map {
   width: 100%;
