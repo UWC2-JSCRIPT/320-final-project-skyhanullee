@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import JobLink from "./JobLink";
 
 function MarkerCard({ job }) {
-  const { title, location, company, salary_min, created } = job
+  const { title, location, company, salary_min, created, id } = job
   const dateCreated = new Date(created).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
   const salary = salary_min.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
 
@@ -17,12 +17,8 @@ function MarkerCard({ job }) {
         <p>{salary}</p>
         <h3>Date Created: </h3>
         <p>{dateCreated}</p>
-        <a href="#"><h3>More Info</h3></a>
       </div>
-      {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}>
-        <button>More Info</button>
-      </Link> */}
-      {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}>Link to Job Page</Link> */}
+      <JobLink jobId={id} />
     </div>
   )
 }
