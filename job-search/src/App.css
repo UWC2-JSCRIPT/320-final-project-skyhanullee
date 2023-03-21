@@ -7,7 +7,10 @@
 
 :root {
   --color-primary-100: hsl(208, 100%, 97%);
-  --color-primary-400: hsl(206, 21%, 77%);
+  --color-primary-200: hsl(208, 100%, 90%);
+  /* --color-primary-400: hsl(206, 21%, 77%); */
+  --color-primary-400: hsl(199, 100%, 95%);
+  --color-primary-500: hsl(198, 100%, 87%);
   --color-primary-900: hsl(224, 61%, 16%);
 
   --color-accent-400: hsl(191, 31%, 50%);
@@ -26,15 +29,17 @@
 .dark-mode {
   --background: var(--color-theme-dark);
   --card-background: var(--color-primary-100);
+  --background-hover: var(--color-primary-200);
   --font-color: var(--color-neutral-100);
   --card-font-color: var(--color-neutral-900);
 }
 
 .light-mode {
   --background: var(--color-theme-light);
-  --card-background: var(--color-primary-900);
+  --card-background: var(--color-primary-400);
+  --background-hover: var(--color-primary-500);
   --font-color: var(--color-neutral-900);
-  --card-font-color: var(--color-neutral-100);
+  --card-font-color: var(--color-neutral-900);
 }
 
 body {
@@ -74,9 +79,9 @@ h3, p {
   font-size: 1rem;
 }
 
-button:hover {
+/* button:hover {
   cursor: pointer;
-}
+} */
 
 #root {
   height: inherit;
@@ -91,8 +96,9 @@ button:hover {
   height: var(--nav-height);
   display: flex;
   justify-content: space-between;
-  margin: 0 2rem;
+  padding: 0 2rem;
   color: var(--font-color);
+  /* background-color: var(--background-hover); */
 }
 
 .nav-title-container {
@@ -123,11 +129,6 @@ button:hover {
   text-decoration: underline 1.5px;
 }
 
-#home-link {
-  /* background-color: var(--color-primary-100); */
-  /* border-radius: 15px; */
-}
-
 #theme-button {
   padding: 0;
   border: none;
@@ -145,14 +146,11 @@ button:hover {
   /* gap: 0; */
   /* max-height: inherit; */
   max-height: calc(100svh - var(--nav-height));
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .job-app-container {
   display: grid;
   gap: 1rem;
-  /* width: 25%; */
   /* max-height: inherit; */
   height: calc(100svh - var(--nav-height));
   background-color: var(--background);
@@ -162,7 +160,6 @@ button:hover {
   background-color: var(--background);
   font-size: 1.25rem;
   color: var(--font-color);
-  /* border-radius: 15px; */
 }
 
 .job-form > form {
@@ -174,7 +171,6 @@ button:hover {
   align-items: center;
   gap: 0.5rem;
   margin: 1rem 0;
-
 }
 
 input {
@@ -206,7 +202,8 @@ button[type=submit] {
 }
 
 button[type=submit]:hover {
-  background-color: var(--color-primary-400);
+  background-color: var(--background-hover);
+  cursor: pointer;
 }
 
 .search-icon {
@@ -246,7 +243,7 @@ button[type=submit]:hover {
 }
 
 .job-card:hover {
-  background-color: var(--color-primary-400);
+  background-color: var(--background-hover);
   /* background-color: pink; */
 }
 
