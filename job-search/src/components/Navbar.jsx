@@ -14,7 +14,7 @@ function Navbar() {
           <li className="nav-link" id='home-link'>
             <Link to='/'>Home</Link>
           </li>
-          <li className="nav-link" id="sign-in-link">Sign In</li>
+          {/* <li className="nav-link" id="sign-in-link">Sign In</li> */}
           {/* <li className="nav-link" id="theme-toggle">Theme</li> */}
           <li className="nav-link" id="theme-toggle"><Button /></li>
         </ul>
