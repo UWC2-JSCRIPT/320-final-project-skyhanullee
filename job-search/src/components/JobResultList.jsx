@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { renderToString } from 'react-dom/server';
-import { Link } from 'react-router-dom';
 import JobResultContext from '../context/JobResultContext'
 import MapContext from '../context/MapContext';
 import JobCard from './JobCard';
@@ -9,47 +8,36 @@ import MarkerCard from './MarkerCard';
 
 function JobResultList() {
   const { jobResult } = useContext(JobResultContext);
-  const { map, setMap, bounds, setBounds } = useContext(MapContext);
+  const { map, bounds, infowindow } = useContext(MapContext);
 
-  let tempBounds = new window.google.maps.LatLngBounds();
-  const [markerList, setMarkerList] = useState([]);
+  // const [markerList, setMarkerList] = useState([]);
   const [jobMarkerList, setJobMarkerList] = useState([]);
-  const [markerInfowindow, setMarkerInfowindow] = useState();
+  // const [markerInfowindow, setMarkerInfowindow] = useState();
 
   useEffect(() => {
     setJobMarkerList([]);
     jobResult.results.forEach((job) => {
       if (job.latitude !== undefined && map !== undefined && bounds !== undefined) {
-        // console.log(job);
-        // addMarker(job, map, setMap, bounds, setBounds);
-        let tempMarker = Marker(job, map, bounds, setMarkerInfowindow);
-        setMarkerList([...markerList, tempMarker]);
+        // console.log(markerInfowindow.content);
+        // let tempMarker = Marker(job, map, bounds, setMarkerInfowindow);
+        const { marker } = Marker(job, map, bounds, infowindow);
+        // setMarkerList([...markerList, tempMarker]);
 
-        let tempJobMarker = {
+        const tempJobMarker = {
           id: job.id,
           job: job,
-          marker: tempMarker,
-          infowindow: markerInfowindow
+          marker: marker,
+          // infowindow: markerInfowindow
+          // infowindow: infowindow
         };
         setJobMarkerList(current => [...current, tempJobMarker]);
-        // console.log(tempJobMarker);
       }
     })
-  }, [jobResult, bounds, setJobMarkerList]);
+  }, [jobResult, bounds]);
 
-  // jobMarkerList.forEach((jobMarker) => {
-  //   console.log(jobMarker);
-  // })
-
-  // const jobResultList = jobResult.results.map((job) => {
   const jobResultList = jobMarkerList.map((jobMarker) => {
     const { job } = jobMarker;
-    // console.log(job);
-    // jobResult.results.forEach((job) => {
-    // console.log(job.latitude);
-    // if (job.latitude !== undefined && map !== undefined && bounds !== undefined) {
-    //   addMarker(job, map, bounds);
-    // }
+
     if (job.latitude === undefined) {
       console.log('job.latitude is undefined');
     }
@@ -60,42 +48,27 @@ function JobResultList() {
       console.log('bounds is undefined');
     }
 
-    const findJobId = jobMarkerList.find(j => j.id === job.id);
-
-
+    const currentJob = jobMarkerList.find(c => c.id === job.id);
     return (
-      <li key={job.id} onClick={() => {
-        console.log('job result list onclick');
-        // const checkJobId = jobMarkerList.find(j => j.id === job.id);
-          // console.log(checkJobId);
-        if (findJobId !== undefined) {
-          findJobId.infowindow.open({
-            anchor: findJobId.marker,
-            map,
-          })
+      <li
+        key={job.id}
+        onClick={() => {
+          if (currentJob !== undefined) {
+              // const infowindow = new window.google.maps.InfoWindow();
+              infowindow.setContent(renderToString(<MarkerCard job={job} />));
+              infowindow.setPosition(currentJob.marker.position);
+              infowindow.open({
+                anchor: currentJob.marker,
+                map,
+              }, this);
+          }
         }
-      }
-      }>
+        }>
         <JobCard job={job} />
       </li>
     )
   });
 
-
-  // console.log(markerList)
-
-  // const jobResultList = jobResult.results.map((job) => {
-  //   return (
-  //     <li key={job.id} onClick={() => {
-  //         console.log('job result list onclick');
-  //       }
-  //     }>
-  //       {/* <Link to={`/job/${job.id}`} state={{ data: { job } }}> */}
-  //         <JobCard job={job} />
-  //       {/* </Link> */}
-  //     </li>
-  //   )
-  // });
   return (
     <ul>{jobResultList}</ul>
   )
