@@ -36,15 +36,15 @@ const render = (status) => {
 root.render(
   <React.StrictMode>
     <ThemeController>
-      <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
-        <MapController>
-          <JobResultController>
-            <BrowserRouter>
+      <BrowserRouter>
+        <Wrapper apiKey={GOOGLE_MAPS_API_KEY} render={render}>
+          <MapController>
+            <JobResultController>
               <App />
-            </BrowserRouter>
-          </JobResultController>
-        </MapController>
-      </Wrapper>
+            </JobResultController>
+          </MapController>
+        </Wrapper>
+      </BrowserRouter>
     </ThemeController>
   </React.StrictMode>
 );
