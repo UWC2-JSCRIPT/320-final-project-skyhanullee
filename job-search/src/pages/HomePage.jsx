@@ -4,10 +4,14 @@ import JobResultContext from '../context/JobResultContext';
 import JobResultList from '../components/JobResultList';
 import Map from '../components/Map';
 
+const DEFAULT_SEARCH_TERMS = '';
+const DEFAULT_SEARCH_LOCATION = '';
+const DEFAULT_RESULTS_PER_PAGE = 10;
+
 function HomePage() {
-  const [searchTerms, setSearchTerms] = useState('');
-  const [searchLocation, setSearchLocation] = useState('');
-  const resultsPerPage = 5;
+  const [searchTerms, setSearchTerms] = useState(DEFAULT_SEARCH_TERMS);
+  const [searchLocation, setSearchLocation] = useState(DEFAULT_SEARCH_LOCATION);
+  const resultsPerPage = DEFAULT_RESULTS_PER_PAGE;
 
 
   const onFormSubmit = (event) => {
@@ -53,9 +57,7 @@ function HomePage() {
   return (
     <section className='main-container'>
       <section className='map-container'>
-        <Map 
-          // jobResult={jobResult}
-        />
+        <Map />
       </section>
       <section className='job-app-container'>
         <JobForm
@@ -63,7 +65,6 @@ function HomePage() {
           setSearchTerms={setSearchTerms}
           setSearchLocation={setSearchLocation}
         />
-
         <section className='job-card-container'>
           <JobResultList />
         </section>
