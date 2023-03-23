@@ -12,9 +12,13 @@ function HomePage() {
   const [searchTerms, setSearchTerms] = useState(DEFAULT_SEARCH_TERMS);
   const [searchLocation, setSearchLocation] = useState(DEFAULT_SEARCH_LOCATION);
   const resultsPerPage = DEFAULT_RESULTS_PER_PAGE;
+  // const [jobMarkerList, setJobMarkerList] = useState([]);
+  const { setJobMarkerList } = useContext(JobResultContext);
+
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+    setJobMarkerList([]);
     setSearchTerms(event.target[0].value);
     setSearchLocation(event.target[1].value);
     // setResultsPerPage(event.target[2].value);
