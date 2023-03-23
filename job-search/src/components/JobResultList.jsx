@@ -7,12 +7,12 @@ import Marker from './Marker';
 import MarkerCard from './MarkerCard';
 
 function JobResultList() {
-  const { jobResult } = useContext(JobResultContext);
+  const { jobResult , jobMarkerList, setJobMarkerList} = useContext(JobResultContext);
   const { map, bounds, infowindow } = useContext(MapContext);
-  const [jobMarkerList, setJobMarkerList] = useState([]);
+  // const [jobMarkerList, setJobMarkerList] = useState([]);
 
   useEffect(() => {
-    setJobMarkerList([]);
+    // setJobMarkerList([]);
     jobResult.results.forEach((job) => {
       if (job.latitude !== undefined && map !== undefined && bounds !== undefined) {
         const { marker } = Marker(job, map, bounds, infowindow);
